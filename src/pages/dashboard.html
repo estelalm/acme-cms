@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css2?family=Inder&display=swap" rel="stylesheet">
+    <script src="../js/dashboard.js" type="module" defer></script>
+    <title>ACME Filmes CMS</title>
+</head>
+<body class="h-screen w-screen bg-purple-300 font-inder grid grid-rows-[16vh_1fr]">
+    <header class="flex p-8 w-full justify-between">
+        <div class="flex justify-center items-center">
+            <img src="../img/acme_logo_escuro.png" class="w-[16vw]" alt="">
+            <div class="h-32 border border-white"></div>
+            <h1 class="text-7xl pl-12 w-[16vw]">CMS</h1>
+        </div>
+        <div class="flex bg-violet-400 w-[20%] items-center justify-around">
+            <a href="#" class="text-lg">Dados Gerais</a>
+            <button class="bg-black rounded-full h-14 aspect-square">
+
+            </button>
+        </div>
+    </header>
+    <main class="w-full h-full grid grid-rows-[6vh_8vh_1fr] p-12" >
+        <button class="flex bg-purple-800 text-white text-xl p-4 py-5 items-center justify-around w-[20%] place-self-end">
+            <span class="border-r-2 text-center pr-16 px-12">Cadastrar filme</span>
+            <img src="../img/add.svg" alt="" class="pl-2">
+        </button>
+        <div class="flex p-4 gap-5 text-lg items-center">
+            <div class="h-full border border-black flex items-center p-2 gap-4 w-[30%]">
+                <img src="../img/pesquisa.svg" alt="" class="h-5">
+                <input type="text" placeholder="Pesquisar..." 
+                        class="bg-transparent placeholder:text-slate-500 p-2">
+            </div>
+            <div class="flex items-center gap-4 h-full">
+                <label for="">Filtrar:   </label>
+                <div class="h-full border border-black items-center p-2  w-96"></div>
+            </div>
+            <div class="flex items-center gap-4 h-full">
+                <label for="">Ordenar:   </label>
+                <div class="h-full border border-black items-center p-2  w-96"></div>
+            </div>
+        </div>
+        <div class="bg-violet-500">
+            <div class="bg-slate-400 grid grid-cols-[5%_25%_10%_10%_20%_10%_8%_5%] w-full p-8 gap-2">
+                <span>ID</span>
+                <span>Título</span>
+                <span>Lançamento</span>
+                <span>Preço</span>
+                <span>Gênero</span>
+                <span class="">Destaque</span>
+                <span>Editar</span>
+                <span>Excluir</span>
+            </div>
+            <div>
+                <div class="grid grid-cols-[5%_25%_10%_10%_20%_10%_8%_5%] p-6 px-8 gap-2 items-center">
+                    <span class="">1</span>
+                    <span>A Fantástica Fábrica de Chocolate</span>
+                    <span>22/07/2005</span>
+                    <span>R$10,00</span>
+                    <span>Fantasia</span>
+                    <div class="h-10 px-2"><input type="checkbox" name="" id="" class="h-full"></div>
+                    <button class="h-10 aspect-square bg-gray-50 p-1 rounded-lg">
+                        <img src="../img/edit.png" alt="">
+                    </button>
+                    <button class="h-10 aspect-square bg-red-500 p-1 rounded-lg">
+                        <img src="../img/deletar.png" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

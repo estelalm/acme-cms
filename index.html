@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css2?family=Inder&display=swap" rel="stylesheet">
+    <script src="./src/js/login.js" defer></script>
+    <title>ACME Filmes CMS</title>
+</head>
+<body class="bg-violet-300 h-screen w-screen flex flex-col justify-center font-inder text-white">
+    <header class="w-full h-5 bg-violet-950"></header>
+    <main class="bg-indigo-950 h-5/6 w-full grid content-center gap-14">
+        <div class="flex w-full justify-center items-center">
+            <img src="./src/img/acme_logo.png" class="w-[16vw]" alt="">
+            <div class="h-32 border border-white"></div>
+            <h1 class="text-8xl pl-12 w-[16vw]">CMS</h1>
+        </div>
+        <div class="flex flex-col gap-5 px-32 items-center">
+            <h3 class=" text-4xl text-center">LOGIN</h3>
+            <div class="py-4 w-[28vw]">
+                <input id="email" name="email" type="email" autocomplete="email" class="h-14 w-full border-0 p-1.5 text-indigo-950 bg-purple-400 focus:outline-indigo-900 sm:text-sm sm:leading-6">
+                <label for="">Email</label>
+            </div>
+            <div class="py-4 w-[28vw]">
+                <input id="senha" name="senha" type="password" class="h-14 w-full border-0 p-1.5 text-indigo-950 bg-purple-400 focus:outline-indigo-900 sm:text-sm sm:leading-6">
+                <label for="">Senha</label>
+            </div>
+            <button id="botao-entrar" class="bg-violet-600 w-[28vw] h-20 text-3xl border-pink-100 border">ENTRAR</button>
+        </div>
+    </main>
+    <footer class="w-full h-5 bg-violet-950"></footer>
+</body>
+</html>
