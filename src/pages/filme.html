@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/filme.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css2?family=Inder&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/output.css">
+    <script src="../js/filme.js" type="module"></script>
+    <title></title>
+</head>
+
+<body class="h-screen w-screen bg-purple-500 font-inder grid grid-rows-[16vh_1fr] p-12 overflow-hidden">
+    <header class="flex h-full w-full justify-between items-center">
+        <div class="flex justify-center items-center">
+            <img src="../img/acme_logo_escuro.png" class="w-[14vw]" alt="">
+            <div class="h-24 border border-white"></div>
+            <a href="./dashboard.html" class="text-7xl pl-12 w-[16vw]">CMS</a>
+        </div>
+        <div class="flex bg-violet-400 w-[20%] items-center h-[50%] justify-around">
+            <a href="#" class="text-xl">Vizualizar Filme</a>
+            <button class="bg-black rounded-full h-14 aspect-square ">
+            </button>
+        </div>
+    </header>
+    <main class="w-full h-full bg-violet-400 px-32 py-12 border border-black flex gap-8">
+        <div>
+            <div class="container-input grid w-[26vw] pt-4 ">
+                <label class="text-lg pb-2" >Título</label>
+                <input type="text" class="h-12 bg-violet-300 border border-violet-900 p-2" id="titulo">
+            </div>
+            <div class="container-input grid w-[26vw] pt-4">
+                <label class="text-lg pb-2 ">Gênero(s)</label>
+                <input type="text" class="h-12 bg-violet-300 border border-violet-900 p-2 placeholder:text-violet-400">
+            </div>
+            <div class=" flex gap-5">
+                <div class="container-input grid w-[12vw] pt-4">
+                    <label class="text-lg pb-2 ">Data de
+                        Lançamento</label>
+                    <input type="text" class="h-12 bg-violet-300 border border-violet-900 p-2">
+                </div>
+                <div class="container-input grid w-[13vw] pt-4">
+                    <label class="text-lg pb-2">Data de Relançamento</label>
+                    <input type="text" class="h-12 bg-violet-300 border border-violet-900 p-2">
+                </div>
+            </div>
+            <div class=" flex gap-5">
+                <div class="container-input grid w-[12vw] pt-4">
+                    <label class="text-lg pb-2 ">Duração</label>
+                    <input type="text" class="h-12 bg-violet-300 border border-violet-900 p-2">
+                </div>
+                <div class="container-input grid w-[13vw] pt-4">
+                    <label class="text-lg pb-2 ">Preço</label>
+                    <input type="text" class="h-12 bg-violet-300 border border-violet-900 p-2">
+                </div>
+            </div>
+
+            <div class="container-input grid w-[26vw] pt-4">
+                <label class="text-lg pb-2 ">Sinopse</label>
+                <textarea class="h-40 bg-violet-300 border border-violet-900 p-2 resize-none" minlength="1" ></textarea>
+            </div>
+        </div>
+        <div>
+            <div class="container-input grid w-[26vw] pt-4">
+                <label class="text-lg pb-2 ">Classificação
+                    indicativa</label>
+                <div class="flex gap-6">
+                    <div class="flex gap-4 items-center h-12">
+                        <img src="../img/livre.webp" alt="Livre" class="h-full">
+                    </div>
+                </div>
+            </div>
+            <div class="container-input grid w-[26vw] pt-4">
+                <label class="text-lg pb-2 ">Elenco principal</label>
+                <textarea class="h-24 bg-violet-300 border border-violet-900 p-2 resize-none" minlength="1"></textarea>
+            </div>
+            <div class="container-input grid w-[26vw] pt-4">
+                <label class="text-lg pb-2 ">Diretor(es)</label>
+                <input type="text" class="h-16 bg-violet-300 border border-violet-900 p-2 placeholder="Separar os nomes por vírgula"">
+            </div>
+            <div class="container-input grid w-[26vw] pt-4 pb-16">
+                <label class="text-lg pb-2 ">Produtora(s)</label>
+                <input type="text" class="h-16 bg-violet-300 border border-violet-900 p-2 placeholder="Separar os nomes por vírgula"">
+            </div>
+
+            <div class="flex w-[26vw] justify-center items-center gap-3">
+                <button class="flex bg-purple-600 text-white text-xl p-4 py-3 items-center justify-around w-[20vw] place-self-end"
+                        id="editar">
+                    <span class="border-r-2 text-center pr-16 px-12">Editar filme</span>
+                    <img src="../img/edit.png" alt="" class="pl-2">
+                </button>
+                <button class="bg-red-700 aspect-square h-12 text-3xl hidden" id="exit">X</button>
+            </div>
+        </div>
+        <div>
+            <div class="flex w-[24vw] gap-5 pb-8">
+                <div class="w-[50%]">
+                    <div class="container-input grid w-[26vw] pt-4">
+                        <label class="text-lg pb-2">Capa</label>
+                        <label for="" class="h-80 w-[12vw] bg-center 
+                        bg-cover border border-violet-900 p-2" id="capa"></label>
+                        <input type="file" name="image" id="image" accept="image/*" class="hidden">
+                    </div>
+                </div>
+                <div>
+                    <div class="container-input grid w-[14vw] pt-4">
+                        <label class="text-lg pb-2 ">Capa do filme - link</label>
+                        <input type="text" class="h-24 bg-violet-300 border border-violet-900 p-2">
+                    </div>
+                    <div class="container-input grid w-[14vw] pt-4">
+                        <label class="text-lg pb-2 ">Trailer - link</label>
+                        <input type="text" class="h-24 bg-violet-300 border border-violet-900 p-2 text-wrap">
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <div class="h-60 border w-[20vw] border-black p-4">
+                    Compras
+                </div>
+                <div>
+                    <div>
+                        <label class="text-xl pb-2">Destaque</label>
+                        <div class="h-10 aspect-square bg-black rounded-full"><img src="" alt=""></div>
+                    </div>
+                    <div class="py-3">
+                        <label class="text-xl">Avaliação</label>
+                        <div class="h-10 border border-violet-600 text-xl p-1"><img src="" alt="">0</div>
+                    </div>
+                    <div class="py-3">
+                        <label class="text-xl">Desconto</label>
+                        <div class="h-10 border border-violet-600 text-xl p-1 after:content-['%']"><img src="" alt="">0</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</body>
+
+</html>
