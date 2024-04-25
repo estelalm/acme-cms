@@ -51,16 +51,22 @@ const criarFilme = async () =>{
         else { preco = precoInput.value }
         const dataFilme = dataLancamento.value.split('/').reverse().join('-')
 
+        let dataRelancamentoFilme
+        if(dataRelancamento.value != null && dataRelancamento.value != "" && dataRelancamento.value != " " && dataRelancamento.value != undefined){
+            dataRelancamentoFilme = dataLancamento.value.split('/').reverse().join('-')
+        }else{
+            dataRelancamentoFilme = null
+        }
 
         let novoFilme = {
             "nome": titulo.value,
             "sinopse": sinopse.value,
             "duracao": duracao.value,
             "data_lancamento": dataFilme,
-            "data_relancamento": dataRelancamento,
+            "data_relancamento": dataRelancamentoFilme,
             "valor_unitario": preco,
-            "foto_capa": capa,
-            "trailer":trailer,
+            "foto_capa": capa.value,
+            "trailer":trailer.value,
             "classificacao": classificacao,
             "pais_origem": [paisDeOrigem],
                 "generos": generos,

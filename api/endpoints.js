@@ -29,7 +29,7 @@ export async function postFilme (filme) {
 
     const response = await fetch(url, options)
 
-    console.log(response)
+    console.log(response.json())
     return response.ok
 }
 
