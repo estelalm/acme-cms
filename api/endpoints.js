@@ -40,6 +40,7 @@ export async function deleteFilme (id) {
         method: 'DELETE'
     }
     const response = await fetch(url, options)
+    console.log(response.json)
 
     return response.ok
 }

@@ -762,6 +762,10 @@ video {
   gap: 0.5rem;
 }
 
+.gap-3 {
+  gap: 0.75rem;
+}
+
 .gap-4 {
   gap: 1rem;
 }
@@ -776,10 +780,6 @@ video {
 
 .gap-8 {
   gap: 2rem;
-}
-
-.gap-3 {
-  gap: 0.75rem;
 }
 
 .place-self-end {
@@ -884,6 +884,11 @@ video {
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
+.bg-red-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
+}
+
 .bg-slate-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(148 163 184 / var(--tw-bg-opacity));
@@ -918,29 +923,8 @@ video {
   background-color: rgb(46 16 101 / var(--tw-bg-opacity));
 }
 
-.bg-red-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
-}
-
 .bg-\[url\(\'\$\{filme\.foto_capa\}\'\)\] {
   background-image: url('${filme.foto_capa}');
-}
-
-.bg-\[url\(\'\.\.\/img\/livre\.webp\'\)\] {
-  background-image: url('../img/livre.webp');
-}
-
-.bg-\[url\(\'https\:\/\/images\.justwatch\.com\/poster\/306660449\/s718\/precure-all-stars-f\.jpg\'\)\] {
-  background-image: url('https://images.justwatch.com/poster/306660449/s718/precure-all-stars-f.jpg');
-}
-
-.bg-\[url\(\'https\:\/\/encrypted-tbn0\.gstatic\.com\/images\?q\=tbn\:ANd9GcRw2JRqzMTUMCFZBk-BQapOR3YgB2ww01EsVx_pZyFfSQ\&s\'\)\] {
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw2JRqzMTUMCFZBk-BQapOR3YgB2ww01EsVx_pZyFfSQ&s');
-}
-
-.bg-\[url\(\'https\:\/\/br\.web\.img3\.acsta\.net\/pictures\/210\/527\/21052756_20131024195513383\.jpg\'\)\] {
-  background-image: url('https://br.web.img3.acsta.net/pictures/210/527/21052756_20131024195513383.jpg');
 }
 
 .bg-cover {
@@ -1122,11 +1106,6 @@ video {
 .placeholder\:text-violet-400::placeholder {
   --tw-text-opacity: 1;
   color: rgb(167 139 250 / var(--tw-text-opacity));
-}
-
-.before\:content-\[\'R\$\'\]::before {
-  --tw-content: 'R$';
-  content: var(--tw-content);
 }
 
 .after\:px-2::after {

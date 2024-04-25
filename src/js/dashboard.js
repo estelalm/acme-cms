@@ -30,7 +30,9 @@ const criarInfoFilme = (filme) =>{
     preco.textContent = `R$${filme.valor_unitario.toFixed(2)}`
 
     const generos = document.createElement('span')
-    generos.textContent = 'Fantasia/Aventura'
+    const generosFilme = []
+    filme.generos.forEach(genero => generosFilme.push(genero.nome))
+    generos.textContent = generosFilme.join(' / ')
 
     const checkDestaque = document.createElement('input')
     checkDestaque.type = 'checkbox'
