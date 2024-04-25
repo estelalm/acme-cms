@@ -324,3 +324,69 @@ export async function updateGenero (id, genero) {
     console.log(response.json())
     return response.json()
 }
+
+//países
+
+export async function getPaises (){
+
+    const url = 'http://localhost:8080/v2/AcmeFilmes/paises'
+    const response = await fetch(url)
+    const data = await response.json()
+
+    return data.paises
+}
+
+
+export async function getPaisId (id){
+
+    const url = `http://localhost:8080/v2/AcmeFilmes/pais/${id}`
+        const response = await fetch(url)
+        const data = await response.json()
+  
+        return data.paises
+}
+
+export async function postPais (pais) {
+    const url = 'http://localhost:8080/v2/AcmeFilmes/paises'
+    const options = {
+        method: "POST",
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(pais)
+    }
+
+    const response = await fetch(url, options)
+
+    console.log(response.json())
+    return response.ok
+}
+
+export async function deletePais (id) {
+
+    const url = `http://localhost:8080/v2/AcmeFilmes/pais/${id}`
+    const options = {
+        method: 'DELETE'
+    }
+    const response = await fetch(url, options)
+    console.log(response.json)
+
+    return response.ok
+}
+
+export async function updatePais (id, pais) {
+
+    console.log (id, pais)
+    const url = `http://localhost:8080/v2/AcmeFilmes/pais/${id}`
+    const options = {
+        method : 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(pais)
+    }
+
+    const response = await fetch(url, options)
+    console.log(response.json())
+    return response.json()
+}
