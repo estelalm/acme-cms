@@ -670,6 +670,26 @@ video {
   height: 100vh;
 }
 
+.h-\[10vw\] {
+  height: 10vw;
+}
+
+.h-\[7vw\] {
+  height: 7vw;
+}
+
+.h-\[12vw\] {
+  height: 12vw;
+}
+
+.h-\[8vw\] {
+  height: 8vw;
+}
+
+.h-\[20vh\] {
+  height: 20vh;
+}
+
 .w-96 {
   width: 24rem;
 }
@@ -734,6 +754,14 @@ video {
   width: 100vw;
 }
 
+.w-\[15vw\] {
+  width: 15vw;
+}
+
+.w-\[40\%\] {
+  width: 40%;
+}
+
 .resize-none {
   resize: none;
 }
@@ -744,6 +772,14 @@ video {
 
 .grid-cols-\[5\%_25\%_10\%_20\%_20\%_8\%_5\%\] {
   grid-template-columns: 5% 25% 10% 20% 20% 8% 5%;
+}
+
+.grid-cols-\[5\%_25\%_30\%_5\%_15\%_5\%_5\%\] {
+  grid-template-columns: 5% 25% 30% 5% 15% 5% 5%;
+}
+
+.grid-cols-\[5\%_25\%_50\%_8\%_5\%\] {
+  grid-template-columns: 5% 25% 50% 8% 5%;
 }
 
 .grid-rows-\[14vh_1fr\] {
@@ -824,6 +860,10 @@ video {
 
 .place-self-end {
   place-self: end;
+}
+
+.place-self-center {
+  place-self: center;
 }
 
 .overflow-hidden {
@@ -1124,6 +1164,11 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
 }
 
 .text-indigo-950 {

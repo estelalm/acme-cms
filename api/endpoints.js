@@ -192,3 +192,69 @@ export async function updateDiretor (id, diretor) {
     console.log(response.json())
     return response.json()
 }
+
+//produtoras
+
+export async function getProdutoras (){
+
+    const url = 'http://localhost:8080/v2/AcmeFilmes/produtoras'
+    const response = await fetch(url)
+    const data = await response.json()
+
+    return data.produtoras
+}
+
+
+export async function getProdutoraId (id){
+
+    const url = `http://localhost:8080/v2/AcmeFilmes/produtora/${id}`
+        const response = await fetch(url)
+        const data = await response.json()
+    
+        return data.produtora
+}
+
+export async function postProdutora (produtora) {
+    const url = 'http://localhost:8080/v2/AcmeFilmes/produtora'
+    const options = {
+        method: "POST",
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(produtora)
+    }
+
+    const response = await fetch(url, options)
+
+    console.log(response.json())
+    return response.ok
+}
+
+export async function deleteProdutora (id) {
+
+    const url = `http://localhost:8080/v2/AcmeFilmes/produtora/${id}`
+    const options = {
+        method: 'DELETE'
+    }
+    const response = await fetch(url, options)
+    console.log(response.json)
+
+    return response.ok
+}
+
+export async function updateProdutora (id, produtora) {
+
+    console.log (id, produtora)
+    const url = `http://localhost:8080/v2/AcmeFilmes/produtora/${id}`
+    const options = {
+        method : 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(produtora)
+    }
+
+    const response = await fetch(url, options)
+    console.log(response.json())
+    return response.json()
+}

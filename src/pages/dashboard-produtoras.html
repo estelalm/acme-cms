@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css2?family=Inder&display=swap" rel="stylesheet">
+    <script src="../js/dashboard-produtoras.js" type="module" defer></script>
+    <title>ACME Filmes CMS</title>
+</head>
+<body class="h-screen w-screen bg-purple-300 font-inder grid grid-rows-[14vh_1fr] overflow-hidden">
+    <header class="flex p-8 w-full justify-between items-end">
+        <div class="flex justify-center items-end">
+            <img src="../img/acme_logo_escuro.png" class="w-[12vw]" alt="">
+            <div class="h-[10vh] border border-white"></div>
+            <h1 class="text-7xl pl-12 w-[16vw]">CMS</h1>
+        </div>
+        <div class="flex bg-violet-400 w-[50%] items-center justify-around">
+            <a href="./dashboard.html" class="text-lg">Dados Gerais</a>
+            <a href="./dashboard-atores.html" class="text-lg">Atores</a>
+            <a href="./dashboard-diretores.html" class="text-lg">Diretores</a>
+            <a href="./dashboard-produtoras.html" class="text-lg">Produtoras</a>
+            <button class="bg-black rounded-full h-14 aspect-square">
+            </button>
+        </div>
+    </header>
+    <main class="w-full h-full grid grid-rows-[6vh_8vh_1fr] p-12" >
+        <a class="flex bg-purple-800 text-white text-xl p-4 py-5 items-center justify-around w-[20%] place-self-end"
+            href="./cadastrar-produtora.html">
+            <span class="border-r-2 text-center pr-16 px-12">Cadastrar produtora</span>
+            <img src="../img/add.svg" alt="" class="pl-2">
+        </a>
+        <div class="flex p-4 gap-5 text-lg items-center">
+            <div class="h-full border border-black flex items-center p-2 gap-4 w-[30%]">
+                <img src="../img/pesquisa.svg" alt="" class="h-5">
+                <input type="text" placeholder="Pesquisar..." 
+                        class="bg-transparent placeholder:text-slate-500 p-2">
+            </div>
+            <div class="flex items-center gap-4 h-full">
+                <label for="">Filtrar:   </label>
+                <div class="h-full border border-black items-center p-2  w-96"></div>
+            </div>
+            <div class="flex items-center gap-4 h-full">
+                <label for="">Ordenar:   </label>
+                <div class="h-full border border-black items-center p-2  w-96"></div>
+            </div>
+        </div>
+        <div class="bg-violet-500 h-[92%]">
+            <div class="bg-slate-400 grid grid-cols-[5%_25%_50%_8%_5%] w-full p-8 gap-2">
+                <span>ID</span>
+                <span>Nome</span>
+                <span>Descrição</span>
+                <span>Editar</span>
+                <span>Excluir</span>
+            </div>
+            <div id="container" class="h-[86%] overflow-y-scroll">
+                
+            </div>
+        </div>
+    </main> 
+</body>
+</html>
