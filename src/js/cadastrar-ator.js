@@ -31,7 +31,7 @@ const criarAtor = async () =>{
                 "nome_artistico": nomeArtistico.value,
                 "data_nascimento": dataAtor,
                 "data_falecimento": dataFalecimento.value,
-                "nacionalidade": [2],  //fazer o menu de nacionalidade
+                "nacionalidade": nacionalidade,  
                 "biografia": biografia.value,
                 "foto": foto.value
         }
