@@ -258,3 +258,69 @@ export async function updateProdutora (id, produtora) {
     console.log(response.json())
     return response.json()
 }
+
+//generos
+
+export async function getGeneros (){
+
+    const url = 'http://localhost:8080/v2/AcmeFilmes/generos'
+    const response = await fetch(url)
+    const data = await response.json()
+
+    return data.generos
+}
+
+
+export async function getGeneroId (id){
+
+    const url = `http://localhost:8080/v2/AcmeFilmes/genero/${id}`
+        const response = await fetch(url)
+        const data = await response.json()
+  
+        return data.generos
+}
+
+export async function postGenero (genero) {
+    const url = 'http://localhost:8080/v2/AcmeFilmes/generos'
+    const options = {
+        method: "POST",
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(genero)
+    }
+
+    const response = await fetch(url, options)
+
+    console.log(response.json())
+    return response.ok
+}
+
+export async function deleteGenero (id) {
+
+    const url = `http://localhost:8080/v2/AcmeFilmes/genero/${id}`
+    const options = {
+        method: 'DELETE'
+    }
+    const response = await fetch(url, options)
+    console.log(response.json)
+
+    return response.ok
+}
+
+export async function updateGenero (id, genero) {
+
+    console.log (id, genero)
+    const url = `http://localhost:8080/v2/AcmeFilmes/genero/${id}`
+    const options = {
+        method : 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(genero)
+    }
+
+    const response = await fetch(url, options)
+    console.log(response.json())
+    return response.json()
+}

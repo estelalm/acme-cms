@@ -26,7 +26,7 @@
             </button>
         </div>
     </header>
-    <main class="w-full h-full bg-violet-400 px-32 py-24 border border-black flex gap-8">
+    <main class="w-full h-full bg-violet-400 px-32 py-20 border border-black flex gap-8">
         <div>
             <div class="container-input grid w-[26vw] pt-4 ">
                 <label class="text-lg pb-2 after:content-['*'] after:text-red-700 after:px-2">Título</label>
@@ -34,8 +34,14 @@
             </div>
             <div class="container-input grid w-[26vw] pt-4">
                 <label class="text-lg pb-2 after:content-['*'] after:text-red-700 after:px-2">Gênero(s)</label>
-                <input type="text" class="h-12 bg-violet-300 border border-black p-2 placeholder:text-violet-400"
+                <input type="text" class="h-12 bg-violet-300 border border-black p-2 pb-0 placeholder:text-violet-400"
                     placeholder="Separar os gêneros por vírgula" id="generos">
+                <ul id="lista-generos" class="bg-violet-300 border border-black p-2 w-full absolute top-50%">
+                    <li>a</li>
+                    <li>a</li>
+                    <li>a</li>
+                    <li>a</li>
+                </ul> 
             </div>
             <div class=" flex gap-5">
                 <div class="container-input grid w-[12vw] pt-4">
@@ -94,6 +100,15 @@
                             id="dezoito" value="18 anos">
                     </div>
                 </div>
+            </div>
+            <div class="container-input grid w-[26vw] pt-8">
+                <label class="text-lg pb-2 after:content-['*'] after:text-red-700 after:px-2">País de origem</label>
+                <select name="paises" id="pais-select" class="h-12 bg-violet-300 border outline-none border-black p-2">
+                    <option value="">--Escolha um país--</option>
+                    <option value="1">Brasil</option>
+                </select>
+                <!-- <input type="text" class="h-12 bg-violet-300 border border-black p-2 placeholder:text-violet-400"
+                    placeholder="Separar os gêneros por vírgula" id="generos"> -->
             </div>
         </div>
         <div>
