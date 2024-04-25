@@ -1019,6 +1019,10 @@ video {
   background-image: url('${filme.foto_capa}');
 }
 
+.bg-\[url\(\'\$\{produtora\.foto\}\'\)\] {
+  background-image: url('${produtora.foto}');
+}
+
 .bg-cover {
   background-size: cover;
 }

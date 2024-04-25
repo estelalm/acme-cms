@@ -210,12 +210,12 @@ export async function getProdutoraId (id){
     const url = `http://localhost:8080/v2/AcmeFilmes/produtora/${id}`
         const response = await fetch(url)
         const data = await response.json()
-    
-        return data.produtora
+  
+        return data.produtoras
 }
 
 export async function postProdutora (produtora) {
-    const url = 'http://localhost:8080/v2/AcmeFilmes/produtora'
+    const url = 'http://localhost:8080/v2/AcmeFilmes/produtoras'
     const options = {
         method: "POST",
         headers: {

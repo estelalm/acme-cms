@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css2?family=Inder&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/output.css">
-    <script src="../js/cadastrar-produtora.js" type="module"></script>
-    <title>Cadastrar Filme</title>
+    <script src="../js/produtora.js" type="module"></script>
+    <title>Vizualizar Filme</title>
 </head>
 
 <body class="h-screen w-screen bg-purple-500 font-inder grid grid-rows-[16vh_1fr] p-12 overflow-hidden justify-center">
@@ -21,7 +21,7 @@
             <a href="./dashboard.html" class="text-6xl pl-12 w-[16vw]">CMS</a>
         </div>
         <div class="flex bg-violet-400 w-[40%] items-center h-[50%] justify-around">
-            <a href="#" class="text-xl">Cadastrar Produtora</a>
+            <a href="#" class="text-xl">Vizualizar Produtora</a>
             <button class="bg-black rounded-full h-14 aspect-square ">
             </button>
         </div>
@@ -40,8 +40,7 @@
             <div class=" flex gap-6 items-start">
                 <div class="container-input grid pt-4">
                     <label class="text-lg pb-2">Logo - upload</label>
-                    <label for="" class="h-[10vw] w-[10vw] bg-violet-300 border border-black p-2">Escolher
-                        arquivo</label>
+                    <div for="" class="h-[10vw] w-[10vw] bg-violet-300 border border-black p-2 " id="logoDisplay"></div>
                     <input type="file" name="image" id="image" accept="image/*" class="hidden">
                 </div>
                 <div class="container-input grid w-[15vw] pt-4">
@@ -49,8 +48,8 @@
                     <input type="text" class="h-[20vh] bg-violet-300 border border-black p-2" id="logo" maxlength="200">
                 </div>
             </div>
-            <button class="flex bg-purple-800 text-white text-xl p-4 py-5 items-center justify-around w-[20vw] place-self-center" id="cadastrar">
-                <span class="border-r-2 text-center pr-16 px-12">Cadastrar produtora</span>
+            <button class="flex bg-purple-800 text-white text-xl p-4 py-5 items-center justify-around w-[20vw] place-self-center" id="editar">
+                <span class="border-r-2 text-center pr-16 px-12">Editar produtora</span>
                 <img src="../img/add.svg" alt="" class="pl-2">
             </button>
     </main>
