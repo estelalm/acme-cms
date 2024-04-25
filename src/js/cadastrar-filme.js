@@ -36,11 +36,11 @@ const criarFilme = async () =>{
     let diretor = getDiretorEscolhido()
     let produtoras = getProdutoraEscolhida()
 
-    if(titulo.value === "" || titulo.value === undefined || generosInput.value === "" || generosInput.value === undefined ||
+    if(titulo.value === "" || titulo.value === undefined || generos.length <= 0 || generos === undefined ||
     dataLancamento.value === "" || dataLancamento.value === undefined || duracao.value === "" || duracao.value === undefined ||
     precoInput.value === "" || precoInput.value === undefined || sinopse.value === "" || sinopse.value === undefined ||
-    elenco.value === "" || elenco.value === undefined || diretor.value === "" || diretor.value === undefined ||
-    produtoras.value === "" || produtoras.value === undefined || capa.value === "" || capa.value === undefined ||
+    elenco.length <= 0 || elenco === undefined || diretor.length <= 0  || diretor === undefined || diretor.length <= 0  || diretor === undefined ||
+    produtoras.length <= 0 || produtoras === undefined || capa.value === "" || capa.value === undefined ||
     trailer.value === "" || trailer.value === undefined || classificacao == undefined){
 
         alert('Preencha todos os campos marcados com asterisco')
@@ -59,7 +59,7 @@ const criarFilme = async () =>{
             "data_lancamento": dataFilme,
             "data_relancamento": dataRelancamento,
             "valor_unitario": preco,
-            "foto_capa": foto_capa,
+            "foto_capa": capa,
             "trailer":trailer,
             "classificacao": classificacao,
             "pais_origem": [paisDeOrigem],
@@ -80,7 +80,7 @@ const getGenerosEscolhidos = () =>{
     generosSelect.forEach(select =>{
         let options = select.querySelectorAll('option')
         options.forEach(genero =>{
-            if(genero.value != ""){
+            if(genero.value != "" && genero.value != undefined){
                 if(genero.selected){
                 generosArray.push(Number(genero.value))
             }
@@ -130,8 +130,9 @@ const preencherSelectPais = async () =>{
 
 const getPaisEscolhido = () =>{
     const paisSelect = document.getElementById('pais-select')
+    const paises = paisSelect.querySelectorAll('option')
     let paisId
-    paisSelect.forEach(pais =>{
+    paises.forEach(pais =>{
             if(pais.selected){
                 paisId = Number(pais.value)
             }
@@ -147,7 +148,7 @@ const getAtoresEscolhidos = () =>{
     atoresSelect.forEach(select =>{
         let options = select.querySelectorAll('option')
         options.forEach(ator =>{
-            if(ator.value != ""){
+            if(ator.value != ""  && ator.value != undefined){
                 if(ator.selected){
                 atoresArray.push(Number(ator.value))
             }
@@ -163,7 +164,7 @@ const criarSelectAtores = async () =>{
     const atores = await getAtores()
 
     const atorSelect = document.createElement('select')
-    atorSelect.classList.add('bg-violet-300', 'h-[90%]', 'outline-none')
+    atorSelect.classList.add('bg-violet-300', 'h-[90%]', 'w-[40%]', 'outline-none')
 
     let placeholderOption = document.createElement('option')
     placeholderOption.textContent = "-Escolha o ator-"
@@ -188,7 +189,7 @@ const getDiretorEscolhido = () =>{
     diretoresSelect.forEach(select =>{
         let options = select.querySelectorAll('option')
         options.forEach(diretor =>{
-            if(diretor.value != ""){
+            if(diretor.value != ""  && diretor.value != undefined){
                 if(diretor.selected){
                     diretoresArray.push(Number(diretor.value))
             }
@@ -196,15 +197,15 @@ const getDiretorEscolhido = () =>{
         })
     })
     
-    return atoresArray
+    return diretoresArray
 }
 
 const criarSelectDiretor = async () =>{
 
-    const diretores = await getAtores()
+    const diretores = await getDiretores()
 
     const diretorSelect = document.createElement('select')
-    diretorSelect.classList.add('bg-violet-300', 'h-[90%]', 'outline-none')
+    diretorSelect.classList.add('bg-violet-300', 'h-[90%]', 'w-[40%]', 'outline-none')
 
     let placeholderOption = document.createElement('option')
     placeholderOption.textContent = "-Escolha o diretor-"
@@ -218,7 +219,7 @@ const criarSelectDiretor = async () =>{
         diretorSelect.appendChild(option)
     })
 
-    diretoresInput.appendChild(diretorSelect)
+    diretorInput.appendChild(diretorSelect)
 
 }
 
@@ -229,7 +230,7 @@ const getProdutoraEscolhida = () =>{
     produtorasSelect.forEach(select =>{
         let options = select.querySelectorAll('option')
         options.forEach(produtora =>{
-            if(produtora.value != ""){
+            if(produtora.value != ""  && produtora.value != undefined){
                 if(produtora.selected){
                     produtorasArray.push(Number(produtora.value))
             }
@@ -245,7 +246,7 @@ const criarSelectProdutora = async () =>{
     const produtoras = await getProdutoras()
 
     const produtoraSelect = document.createElement('select')
-    produtoraSelect.classList.add('bg-violet-300', 'h-[90%]', 'outline-none')
+    produtoraSelect.classList.add('bg-violet-300', 'h-[90%]', 'w-[40%]', 'outline-none')
 
     let placeholderOption = document.createElement('option')
     placeholderOption.textContent = "-Escolha a produtora-"
@@ -259,7 +260,7 @@ const criarSelectProdutora = async () =>{
         produtoraSelect.appendChild(option)
     })
 
-    atoresInput.appendChild(atorSelect)
+    produtoraInput.appendChild(produtoraSelect)
 
 }
 
