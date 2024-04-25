@@ -115,15 +115,33 @@
             </div>
             <div class="container-input grid w-[26vw] pt-4">
                 <label class="text-lg pb-2 after:content-['*'] after:text-red-700 after:px-2">Elenco principal</label>
-                <textarea class="h-24 bg-violet-300 border border-black p-2 resize-none" minlength="1" id="elenco" placeholder="Separar os nomes por vírgula"></textarea>
+                <div class="h-24 bg-violet-300 border border-black p-2 resize-none grid grid-cols-[1fr_5%]" minlength="1"  placeholder="">
+                    <div id="elenco" class="flex gap-1"></div>
+                    <button id="add-ator"  class="bg-[url('../img/add.svg')] bg-no-repeat bg-contain bg-center border-4 border-violet-400 
+                                                    w-[96%] aspect-square">
+
+                    </button>
+                </div>
             </div>
             <div class="container-input grid w-[26vw] pt-4">
                 <label class="text-lg pb-2 after:content-['*'] after:text-red-700 after:px-2">Diretor(es)</label>
-                <input type="text" class="h-16 bg-violet-300 border border-black p-2" id="diretor" placeholder='Separar os nomes por vírgula'>
+                <div type="text" class="h-16 bg-violet-300 border border-black p-2 grid grid-cols-[1fr_5%]" id="diretor" placeholder=''>
+                    <div id="diretor" class="flex gap-1"></div>
+                    <button id="add-diretor"  class="bg-[url('../img/add.svg')] bg-no-repeat bg-contain bg-center border-4 border-violet-400 
+                                                    w-[96%] aspect-square">
+
+                    </button>
+                </div>
             </div>
             <div class="container-input grid w-[26vw] pt-4">
                 <label class="text-lg pb-2 after:content-['*'] after:text-red-700 after:px-2">Produtora(s)</label>
-                <input type="text" class="h-16 bg-violet-300 border border-black p-2" id="produtor" placeholder='Separar os nomes por vírgula'>
+                <div type="text" class="h-16 bg-violet-300 border border-black p-2 grid grid-cols-[1fr_5%]" id="produtor" placeholder=''>
+                    <div id="produtora" class="flex gap-1"></div>
+                    <button id="add-produtora"  class="bg-[url('../img/add.svg')] bg-no-repeat bg-contain bg-center border-4 border-violet-400 
+                                                    w-[96%] aspect-square">
+
+                    </button>
+                </div>
             </div>
         </div>
         <div>

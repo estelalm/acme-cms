@@ -1,11 +1,17 @@
 
 
-import { postFilme, getGeneros, getPaises } from "../../api/endpoints.js"
+import { postFilme, getGeneros, getPaises, getAtores, getDiretores, getProdutoras } from "../../api/endpoints.js"
 
 
 const botaoCadastrar = document.getElementById('cadastrar')
 const botaoAddGenero = document.getElementById('add-genero')
+const botaoAddAtor = document.getElementById('add-ator')
+const botaoAddDiretor = document.getElementById('add-diretor')
+const botaoAddProdutora = document.getElementById('add-produtora')
 let generosInput = document.getElementById('generos')
+let atoresInput = document.getElementById('elenco')
+let diretorInput = document.getElementById('diretor')
+let produtoraInput = document.getElementById('produtora')
 
 const criarFilme = async () =>{
 
@@ -15,9 +21,6 @@ const criarFilme = async () =>{
     let duracao = document.getElementById('duracao')
     let precoInput = document.getElementById('preco')  
     let sinopse = document.getElementById('sinopse')
-    let elenco = document.getElementById('elenco')
-    let diretor = document.getElementById('diretor')
-    let produtoras = document.getElementById('produtor')
     let capa = document.getElementById('capa')
     let trailer = document.getElementById('trailer')
     let classificacaoInput = document.querySelectorAll("input[type=radio]")
@@ -28,7 +31,10 @@ const criarFilme = async () =>{
         }
     })
     let generos = getGenerosEscolhidos()
-
+    let paisDeOrigem = getPaisEscolhido()
+    let elenco = getAtoresEscolhidos()
+    let diretor = getDiretorEscolhido()
+    let produtoras = getProdutoraEscolhida()
 
     if(titulo.value === "" || titulo.value === undefined || generosInput.value === "" || generosInput.value === undefined ||
     dataLancamento.value === "" || dataLancamento.value === undefined || duracao.value === "" || duracao.value === undefined ||
@@ -56,11 +62,11 @@ const criarFilme = async () =>{
             "foto_capa": foto_capa,
             "trailer":trailer,
             "classificacao": classificacao,
-            "pais_origem": [3],
+            "pais_origem": [paisDeOrigem],
                 "generos": generos,
-                "elenco": [1,6],
-                "diretor": [1],
-                "produtora": [2,3]
+                "elenco": elenco,
+                "diretor": diretor,
+                "produtora": produtoras
         }
     
        await postFilme(novoFilme)
@@ -134,7 +140,133 @@ const getPaisEscolhido = () =>{
     return paisId
 }
 
+const getAtoresEscolhidos = () =>{
+    let atoresSelect = atoresInput.querySelectorAll('select')
+    let atoresArray = []
+
+    atoresSelect.forEach(select =>{
+        let options = select.querySelectorAll('option')
+        options.forEach(ator =>{
+            if(ator.value != ""){
+                if(ator.selected){
+                atoresArray.push(Number(ator.value))
+            }
+        }
+        })
+    })
+    
+    return atoresArray
+}
+
+const criarSelectAtores = async () =>{
+
+    const atores = await getAtores()
+
+    const atorSelect = document.createElement('select')
+    atorSelect.classList.add('bg-violet-300', 'h-[90%]', 'outline-none')
+
+    let placeholderOption = document.createElement('option')
+    placeholderOption.textContent = "-Escolha o ator-"
+    atorSelect.appendChild(placeholderOption)
+
+    atores.forEach(ator =>{
+        let option = document.createElement('option')
+        option.value = ator.id
+        option.textContent = ator.nome
+
+        atorSelect.appendChild(option)
+    })
+
+    atoresInput.appendChild(atorSelect)
+
+}
+
+const getDiretorEscolhido = () =>{
+    let diretoresSelect = diretorInput.querySelectorAll('select')
+    let diretoresArray = []
+
+    diretoresSelect.forEach(select =>{
+        let options = select.querySelectorAll('option')
+        options.forEach(diretor =>{
+            if(diretor.value != ""){
+                if(diretor.selected){
+                    diretoresArray.push(Number(diretor.value))
+            }
+        }
+        })
+    })
+    
+    return atoresArray
+}
+
+const criarSelectDiretor = async () =>{
+
+    const diretores = await getAtores()
+
+    const diretorSelect = document.createElement('select')
+    diretorSelect.classList.add('bg-violet-300', 'h-[90%]', 'outline-none')
+
+    let placeholderOption = document.createElement('option')
+    placeholderOption.textContent = "-Escolha o diretor-"
+    diretorSelect.appendChild(placeholderOption)
+
+    diretores.forEach(diretor =>{
+        let option = document.createElement('option')
+        option.value = diretor.id
+        option.textContent = diretor.nome
+
+        diretorSelect.appendChild(option)
+    })
+
+    diretoresInput.appendChild(diretorSelect)
+
+}
+
+const getProdutoraEscolhida = () =>{
+    let produtorasSelect = produtoraInput.querySelectorAll('select')
+    let produtorasArray = []
+
+    produtorasSelect.forEach(select =>{
+        let options = select.querySelectorAll('option')
+        options.forEach(produtora =>{
+            if(produtora.value != ""){
+                if(produtora.selected){
+                    produtorasArray.push(Number(produtora.value))
+            }
+        }
+        })
+    })
+    
+    return produtorasArray
+}
+
+const criarSelectProdutora = async () =>{
+
+    const produtoras = await getProdutoras()
+
+    const produtoraSelect = document.createElement('select')
+    produtoraSelect.classList.add('bg-violet-300', 'h-[90%]', 'outline-none')
+
+    let placeholderOption = document.createElement('option')
+    placeholderOption.textContent = "-Escolha a produtora-"
+    produtoraSelect.appendChild(placeholderOption)
+
+    produtoras.forEach(produtora =>{
+        let option = document.createElement('option')
+        option.value = produtora.id
+        option.textContent = produtora.nome
+
+        produtoraSelect.appendChild(option)
+    })
+
+    atoresInput.appendChild(atorSelect)
+
+}
+
 botaoCadastrar.addEventListener('click', criarFilme)
 botaoAddGenero.addEventListener('click', criarSelectGeneros)
+botaoAddAtor.addEventListener('click', criarSelectAtores)
+botaoAddDiretor.addEventListener('click', criarSelectDiretor)
+botaoAddProdutora.addEventListener('click', criarSelectProdutora)
 
 preencherSelectPais()
