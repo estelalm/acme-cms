@@ -13,7 +13,7 @@ const criarDiretor = async () =>{
     let dataNascimento = document.getElementById('nascimento')
     let dataFalecimento = document.getElementById('falecimento')
     let genero = document.getElementById('genero')
-    let nacionalidade = getPaisEscolhido
+    let nacionalidade = getPaisEscolhido()
     let biografia = document.getElementById('biografia')
     let foto = document.getElementById('foto')
 
@@ -31,7 +31,7 @@ const criarDiretor = async () =>{
                 "nome_artistico": nomeArtistico.value,
                 "data_nascimento": dataDiretor,
                 "data_falecimento": dataFalecimento.value,
-                "nacionalidade": nacionalidade,  
+                "nacionalidade": [nacionalidade],  
                 "biografia": biografia.value,
                 "foto": foto.value
         }

@@ -1,4 +1,4 @@
- import { getFilmeId, updateFilme } from "../../api/endpoints.js";
+ import { getFilmeId, updateFilme, getPaises } from "../../api/endpoints.js";
 
  const filmeId = Number(localStorage.getItem('idFilme')) 
  const isEditing =localStorage.getItem('isEditing')
@@ -7,6 +7,9 @@ const botaoEditar = document.getElementById('editar')
 const body = document.getElementsByTagName("body")
 const inputs = document.querySelectorAll('input')
 const textAreas = document.querySelectorAll('textarea')
+let nacionalidade = document.getElementById('nacionalidade')  
+const paisSelect = document.getElementById('pais-select')
+const nacionalidadeText = document.getElementById('nacionalidade-text')
 
 inputs.forEach(input =>{
     input.disabled = true
@@ -19,6 +22,9 @@ textAreas.forEach(textArea =>{
 const modoEditar = () =>{
 
     body[0].classList.toggle('edit-mode')
+    paisSelect.classList.toggle('hidden')
+    nacionalidadeText.classList.toggle('hidden')
+
     const botaoCancelar = document.getElementById('exit')
     // botaoCancelar.classList.toggle('hidden')
     // botaoCancelar.addEventListener('click', () =>{
@@ -58,6 +64,7 @@ const modoEditar = () =>{
         }else{
             dataRelancamento = inputs[3].value.split('/').reverse().join('-')
         }
+        console.log(getPaisEscolhido())
 
         const filmeAtualizado = {
             "nome": inputs[0].value,
@@ -67,8 +74,8 @@ const modoEditar = () =>{
             "data_relancamento": dataRelancamento,
             "valor_unitario": valorUnitario,
             "foto_capa": inputs[9].value,
-            "classificacao": 0,
-            "pais_origem_id": 0
+            "classificacao": 1,
+            "pais_origem": getPaisEscolhido()
         }
 
        updateFilme(filmeId, filmeAtualizado)
@@ -76,6 +83,36 @@ const modoEditar = () =>{
 }
 
 botaoEditar.addEventListener('click', modoEditar)
+
+const preencherSelectPais = async (nacionalidadeArray) => {
+
+    const paises = await getPaises()
+
+    paises.forEach(pais => {
+        const option = document.createElement('option')
+        option.value = pais.id
+        option.textContent = pais.nome
+
+
+        if(nacionalidadeArray[0].id == option.value){
+            option.selected = true
+        }
+
+        paisSelect.appendChild(option)
+    })
+}
+const getPaisEscolhido = () => {
+    const paisSelect = document.getElementById('pais-select')
+    const paises = paisSelect.querySelectorAll('option')
+    let paisId
+    paises.forEach(pais => {
+        if (pais.selected) {
+            paisId = Number(pais.value)
+        }
+    })
+
+    return paisId
+}
 
 ////////////////////////////////////////////////
 
@@ -111,6 +148,16 @@ const preencherInfoFilme = (filme) =>{
     inputs[5].value = `R$${filme.valor_unitario.toFixed(2)}`
     textAreas[0].value = filme.sinopse
 
+
+    //classificação
+    let classificacaoImg = document.getElementById('img-classificacao')
+    classificacaoImg.src = `../img/${filme.classificacao.classificacao[0].imagem}`
+    classificacaoImg.alt = filme.classificacao.classificacao[0].nome
+
+    //país de origem
+    nacionalidadeText.textContent = filme.pais_origem[0].nome
+
+
     //elenco
     const elencoFilme = []
     filme.elenco.forEach(ator => elencoFilme.push(ator.nome))
@@ -128,6 +175,9 @@ const preencherInfoFilme = (filme) =>{
     capa.classList.add(`bg-[url('${filme.foto_capa}')]`)
     inputs[9].value = filme.foto_capa
     inputs[10].value = filme.trailer
+
+
+    preencherSelectPais(filme.pais_origem)
     
 }
 

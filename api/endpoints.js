@@ -112,7 +112,6 @@ export async function deleteAtor (id) {
 
 export async function updateAtor (id, ator) {
 
-    console.log (id, ator)
     const url = `http://localhost:8080/v2/AcmeFilmes/ator/${id}`
     const options = {
         method : 'PUT',
@@ -123,7 +122,7 @@ export async function updateAtor (id, ator) {
     }
 
     const response = await fetch(url, options)
-    console.log(response.json())
+    
     return response.json()
 }
 

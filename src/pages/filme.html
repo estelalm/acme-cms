@@ -64,15 +64,57 @@
             </div>
         </div>
         <div>
-            <div class="container-input grid w-[26vw] pt-4">
+            <div class="flex w-[26vw]">
+                           <div class="container-input grid w-[26vw] pt-4">
                 <label class="text-lg pb-2 ">Classificação
                     indicativa</label>
                 <div class="flex gap-6">
                     <div id="classificacao-container" class="flex gap-4 items-center h-12">
-                        <img src="../img/livre.webp" alt="Livre" class="h-full">
+                        <img src="" alt="" class="h-full" id="img-classificacao">
+                        <div class="flex gap-6 hidden">
+                            <div class="flex flex-col gap-4 items-center h-12">
+                                <img src="../img/livre.webp" alt="Livre" class="h-full">
+                                <input type="radio" name="classificacao" class="h-12 bg-violet-300 border border-black p-2"
+                                    id="livre" value="1">
+                            </div>
+                            <div class="flex flex-col gap-4 items-center h-12">
+                                <img src="../img/dez.webp" alt="Livre" class="h-full">
+                                <input type="radio" name="classificacao" class="h-12 bg-violet-300 border border-black p-2"
+                                    id="dez" value="2">
+                            </div>
+                            <div class="flex flex-col gap-4 items-center h-12">
+                                <img src="../img/doze.webp" alt="Livre" class="h-full">
+                                <input type="radio" name="classificacao" class="h-12 bg-violet-300 border border-black p-2"
+                                    id="doze" value="3">
+                            </div>
+                            <div class="flex flex-col gap-4 items-center h-12">
+                                <img src="../img/catorze.png" alt="Livre" class="h-full">
+                                <input type="radio" name="classificacao" class="h-12 bg-violet-300 border border-black p-2"
+                                    id="quatorze" value="4">
+                            </div>
+                            <div class="flex flex-col gap-4 items-center h-12">
+                                <img src="../img/dezesseis.png" alt="Livre" class="h-full">
+                                <input type="radio" name="classificacao" class="h-12 bg-violet-300 border border-black p-2"
+                                    id="dezesseis" value="5">
+                            </div>
+                            <div class="flex flex-col gap-4 items-center h-12">
+                                <img src="../img/dezoito.png" alt="Livre" class="h-full">
+                                <input type="radio" name="classificacao" class="h-12 bg-violet-300 border border-black p-2"
+                                    id="dezoito" value="6">
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div> 
+            <div class="container-input grid w-[13vw] pt-4" id="nacionalidade">
+                <label class="text-lg pb-2 after:content-['*'] after:text-red-700 after:px-2">Nacionalidade</label>
+                <span id="nacionalidade-text" class=" h-12 bg-violet-300 border border-violet-900 p-2"></span>
+                <select type="text" class="hidden h-12 bg-violet-300 border border-violet-900 p-2" id="pais-select" maxlength="5">
+                    <option value="">-Escolha nacionalidade-</option>
+                </select>
             </div>
+            </div>
+
             <div class="container-input grid w-[26vw] pt-4">
                 <label class="text-lg pb-2 ">Elenco principal</label>
                 <textarea class="h-24 bg-violet-300 border border-violet-900 p-2 resize-none" minlength="1"></textarea>

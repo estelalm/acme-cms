@@ -1,8 +1,7 @@
-import { getAtorId, updateAtor } from "../../api/endpoints.js";
+import { getAtorId, updateAtor, getPaises } from "../../api/endpoints.js";
 
 
 const atorId = Number(localStorage.getItem('idAtor')) 
-console.log(atorId)
 const isEditing =localStorage.getItem('isEditing')
 
 const botaoEditar = document.getElementById('editar')
@@ -16,6 +15,8 @@ let dataNascimento = document.getElementById('nascimento')
 let dataFalecimento = document.getElementById('falecimento')
 let genero = document.getElementById('genero')
 let nacionalidade = document.getElementById('nacionalidade')  
+const paisSelect = document.getElementById('pais-select')
+const nacionalidadeText = document.getElementById('nacionalidade-text')
 let biografia = document.getElementById('biografia')
 let foto = document.getElementById('foto')
 
@@ -32,6 +33,8 @@ const modoEditar = () =>{
 
    body[0].classList.toggle('edit-mode')
    const botaoCancelar = document.getElementById('exit')
+   paisSelect.classList.toggle('hidden')
+   nacionalidadeText.classList.toggle('hidden')
    
    const botaoSpan = botaoEditar.querySelector('span')
 
@@ -57,6 +60,7 @@ const modoEditar = () =>{
 
    if(!body[0].classList.contains('edit-mode')){
 
+        console.log(getPaisEscolhido())
 
        let dataNascimentoAtor = dataNascimento.value.split('/').reverse().join('-')
        let dataFalecimentoAtor
@@ -66,6 +70,8 @@ const modoEditar = () =>{
         dataFalecimentoAtor = dataFalecimento.value.split('/').reverse().join('-')
        }
 
+
+
        const atorAtualizado =         {
             "id": atorId,
             "nome": nome.value,
@@ -74,15 +80,45 @@ const modoEditar = () =>{
             "data_falecimento": dataFalecimentoAtor,
             "biografia": biografia.value,
             "foto": foto.value,
-            "nacionalidade": [2, 4]
+            "nacionalidade": getPaisEscolhido()
     }
-
+    
       updateAtor(atorId, atorAtualizado)
+    window.location.reload()
    }
 }
 
 botaoEditar.addEventListener('click', modoEditar)
 
+const preencherSelectPais = async (nacionalidadeArray) => {
+
+    const paises = await getPaises()
+
+    paises.forEach(pais => {
+        const option = document.createElement('option')
+        option.value = pais.id
+        option.textContent = pais.gentilico
+
+
+        if(nacionalidadeArray[0].id == option.value){
+            option.selected = true
+        }
+
+        paisSelect.appendChild(option)
+    })
+}
+const getPaisEscolhido = () => {
+    const paisSelect = document.getElementById('pais-select')
+    const paises = paisSelect.querySelectorAll('option')
+    let paisId
+    paises.forEach(pais => {
+        if (pais.selected) {
+            paisId = Number(pais.value)
+        }
+    })
+
+    return [paisId]
+}
 ////////////////////////////////////////////////
 
 const preencherInfoAtor = (ator) =>{
@@ -109,13 +145,15 @@ const preencherInfoAtor = (ator) =>{
    //nacionalidade
    const nacionalidadeArray = []
    ator.nacionalidade.forEach(nacionalidadeAtor => nacionalidadeArray.push(nacionalidadeAtor.gentilico))
-   nacionalidade.value = nacionalidadeArray.join(' / ')
+   nacionalidadeText.textContent = nacionalidadeArray.join(' / ')
 
    biografia.value = ator.biografia
 
    let fotoDisplay = document.getElementById('fotoDisplay')
    fotoDisplay.classList.add(`bg-[url('${ator.foto}')]`)
    foto.value = ator.foto
+
+   preencherSelectPais(ator.nacionalidade)
    
 }
 

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css2?family=Inder&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/output.css">
+    <script src="../js/cadastrar.js" type="module"></script>
+    <title>Cadastrar Filme</title>
+</head>
+
+<body class="h-screen w-screen bg-purple-500 font-inder grid grid-rows-[16vh_1fr] p-12 overflow-hidden">
+    <header class="flex h-full w-full justify-between items-center">
+        <div class="flex justify-center items-center">
+            <img src="../img/acme_logo_escuro.png" class="w-[14vw]" alt="">
+            <div class="h-24 border border-white"></div>
+            <a href="./dashboard.html" class="text-7xl pl-12 w-[16vw]">CMS</a>
+        </div>
+        <div class="flex bg-violet-400 w-[20%] items-center h-[50%] justify-around">
+            <a href="#" class="text-xl">Cadastrar Filme</a>
+            <button class="bg-black rounded-full h-14 aspect-square ">
+            </button>
+        </div>
+    </header>
+    <main class="w-full h-full bg-violet-400 px-32 py-24 border border-black flex gap-8">
+        <div>
+            <div class="container-input grid w-[26vw] pt-4 ">
+                <label class="text-lg pb-2 after:content-['*'] after:text-red-700 after:px-2">Título</label>
+                <input type="text" class="h-12 bg-violet-300 border border-black p-2" id="titulo" maxlength="80">
+            </div>
+            <div class="container-input grid w-[26vw] pt-4">
+                <label class="text-lg pb-2 after:content-['*'] after:text-red-700 after:px-2">Gênero(s)</label>
+                <input type="text" class="h-12 bg-violet-300 border border-black p-2 placeholder:text-violet-400"
+                    placeholder="Separar os gêneros por vírgula" id="generos">
+            </div>
+            <div class=" flex gap-5">
+                <div class="container-input grid w-[12vw] pt-4">
+                    <label class="text-lg pb-2 after:content-['*'] after:text-red-700 after:px-2">Data de
+                        Lançamento</label>
+                    <input type="text" class="h-12 bg-violet-300 border border-black p-2" id="lancamento" placeholder="dd/mm/aaaa">
+                </div>
+                <div class="container-input grid w-[13vw] pt-4">
+                    <label class="text-lg pb-2">Data de Relançamento</label>
+                    <input type="text" class="h-12 bg-violet-300 border border-black p-2" id="relancamento" placeholder="dd/mm/aaaa">
+                </div>
+            </div>
+            <div class=" flex gap-5">
+                <div class="container-input grid w-[12vw] pt-4">
+                    <label class="text-lg pb-2 after:content-['*'] after:text-red-700 after:px-2">Duração</label>
+                    <input type="text" class="h-12 bg-violet-300 border border-black p-2" 
+                    id="duracao" placeholder="00:00:00" maxlength="8" minlength="8">
+                </div>
+                <div class="container-input grid w-[13vw] pt-4">
+                    <label class="text-lg pb-2 after:content-['*'] after:text-red-700 after:px-2">Preço (R$)</label>
+                    <input type="text" class="h-12 bg-violet-300 border border-black p-2" id="preco" maxlength="5">
+                </div>
+            </div>
+            <div class="container-input grid w-[26vw] pt-4">
+                <label class="text-lg pb-2 after:content-['*'] after:text-red-700 after:px-2">Classificação
+                    indicativa</label>
+                <div class="flex gap-6">
+                    <div class="flex flex-col gap-4 items-center h-12">
+                        <img src="../img/livre.webp" alt="Livre" class="h-full">
+                        <input type="radio" name="classificacao" class="h-12 bg-violet-300 border border-black p-2"
+                            id="livre" value="Livre">
+                    </div>
+                    <div class="flex flex-col gap-4 items-center h-12">
+                        <img src="../img/dez.webp" alt="Livre" class="h-full">
+                        <input type="radio" name="classificacao" class="h-12 bg-violet-300 border border-black p-2"
+                            id="dez" value="10 anos">
+                    </div>
+                    <div class="flex flex-col gap-4 items-center h-12">
+                        <img src="../img/doze.webp" alt="Livre" class="h-full">
+                        <input type="radio" name="classificacao" class="h-12 bg-violet-300 border border-black p-2"
+                            id="doze" value="12 anos">
+                    </div>
+                    <div class="flex flex-col gap-4 items-center h-12">
+                        <img src="../img/catorze.png" alt="Livre" class="h-full">
+                        <input type="radio" name="classificacao" class="h-12 bg-violet-300 border border-black p-2"
+                            id="quatorze" value="14 anos">
+                    </div>
+                    <div class="flex flex-col gap-4 items-center h-12">
+                        <img src="../img/dezesseis.png" alt="Livre" class="h-full">
+                        <input type="radio" name="classificacao" class="h-12 bg-violet-300 border border-black p-2"
+                            id="dezesseis" value="16 anos">
+                    </div>
+                    <div class="flex flex-col gap-4 items-center h-12">
+                        <img src="../img/dezoito.png" alt="Livre" class="h-full">
+                        <input type="radio" name="classificacao" class="h-12 bg-violet-300 border border-black p-2"
+                            id="dezoito" value="18 anos">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container-input grid w-[26vw] pt-4">
+                <label class="text-lg pb-2 after:content-['*'] after:text-red-700 after:px-2">Sinopse</label>
+                <textarea class="h-32 bg-violet-300 border border-black p-2 resize-none" minlength="1" id="sinopse"></textarea>
+            </div>
+            <div class="container-input grid w-[26vw] pt-4">
+                <label class="text-lg pb-2 after:content-['*'] after:text-red-700 after:px-2">Elenco principal</label>
+                <textarea class="h-24 bg-violet-300 border border-black p-2 resize-none" minlength="1" id="elenco" placeholder="Separar os nomes por vírgula"></textarea>
+            </div>
+            <div class="container-input grid w-[26vw] pt-4">
+                <label class="text-lg pb-2 after:content-['*'] after:text-red-700 after:px-2">Diretor(es)</label>
+                <input type="text" class="h-16 bg-violet-300 border border-black p-2" id="diretor" placeholder='Separar os nomes por vírgula'>
+            </div>
+            <div class="container-input grid w-[26vw] pt-4">
+                <label class="text-lg pb-2 after:content-['*'] after:text-red-700 after:px-2">Produtora(s)</label>
+                <input type="text" class="h-16 bg-violet-300 border border-black p-2" id="produtor" placeholder='Separar os nomes por vírgula'>
+            </div>
+        </div>
+        <div>
+            <div class="flex w-[24vw] gap-5 pb-16">
+                <div class="w-[50%]">
+                    <div class="container-input grid w-[26vw] pt-4">
+                        <label class="text-lg pb-2">Imagem - upload</label>
+                        <label for="" class="h-64 w-[12vw] bg-violet-300 border border-black p-2">Escolher
+                            arquivo</label>
+                        <input type="file" name="image" id="image" accept="image/*" class="hidden">
+                    </div>
+                    <div class="container-input grid w-[12vw] pt-4">
+                        <label class="text-lg pb-2 after:content-['*'] after:text-red-700 after:px-2">Imagem - link</label>
+                        <input type="text" class="h-24 bg-violet-300 border border-black p-2" id="capa" maxlength="200">
+                    </div>
+                </div>
+                <div>
+                    <div class="container-input grid w-[26vw] pt-4">
+                        <label class="text-lg pb-2">Vídeo - upload</label>
+                        <label for="" class="h-64 w-[12vw] bg-violet-300 border border-black p-2">Escolher
+                            arquivo</label>
+                        <input type="file" name="video" id="video" accept="video/*" class="hidden">
+                    </div>
+                    <div class="container-input grid w-[12vw] pt-4">
+                        <label class="text-lg pb-2 after:content-['*'] after:text-red-700 after:px-2">Vídeo - link</label>
+                        <input type="text" class="h-24 bg-violet-300 border border-black p-2 text-wrap" id="trailer">
+                    </div>
+                </div>
+            </div>
+            <button class="flex bg-purple-800 text-white text-xl p-4 py-5 items-center justify-around w-[20vw] place-self-end" id="cadastrar">
+                <span class="border-r-2 text-center pr-16 px-12">Cadastrar filme</span>
+                <img src="../img/add.svg" alt="" class="pl-2">
+            </button>
+        </div>
+    </main>
+</body>
+
+</html>

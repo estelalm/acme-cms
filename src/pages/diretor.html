@@ -56,7 +56,12 @@
                 </div>
                 <div class="container-input grid w-[13vw] pt-4">
                     <label class="text-lg pb-2 after:content-['*'] after:text-red-700 after:px-2">Nacionalidade</label>
-                    <input type="text" class="h-12 bg-violet-300 border border-black p-2" id="nacionalidade" maxlength="5">
+                    <div type="text" class="h-12 bg-violet-300 border border-black p-2" id="nacionalidade" maxlength="5">
+                        <span id="nacionalidade-text"></span>
+                        <select type="text" class="hidden h-12 bg-violet-300 border border-black p-2" id="pais-select" maxlength="5">
+                            <option value="">-Escolha nacionalidade-</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="container-input grid w-[26vw] pt-4">
