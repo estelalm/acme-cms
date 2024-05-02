@@ -10,9 +10,10 @@ const criarInfoFilme = (filme) =>{
 
     const idFilme = document.createElement('span')
     idFilme.textContent = filme.id
+    idFilme.classList.add('border-*-0', 'border-r-2', 'border-r-black')
 
     const titulo = document.createElement('a')
-    titulo.classList.add('underline', 'title')
+    titulo.classList.add('underline', 'title', 'text-[1.2rem]')
     titulo.textContent = filme.nome
     titulo.href = './filme.html'
 
