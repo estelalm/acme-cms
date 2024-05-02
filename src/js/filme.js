@@ -149,10 +149,11 @@ const preencherInfoFilme = (filme) =>{
     textAreas[0].value = filme.sinopse
 
 
+
     //classificação
     let classificacaoImg = document.getElementById('img-classificacao')
-    classificacaoImg.src = `../img/${filme.classificacao.classificacao[0].imagem}`
-    classificacaoImg.alt = filme.classificacao.classificacao[0].nome
+    classificacaoImg.src = `../img/${filme.classificacao[0].imagem}`
+    classificacaoImg.alt = filme.classificacao[0].nome
 
     //país de origem
     nacionalidadeText.textContent = filme.pais_origem[0].nome
@@ -165,6 +166,7 @@ const preencherInfoFilme = (filme) =>{
     //diretor
     const diretoresFilme = []
     filme.diretor.forEach(diretor => diretoresFilme.push(diretor.nome))
+
     inputs[6].value = diretoresFilme.join(', ')
     //produtora
     const produtorasFilme = []
