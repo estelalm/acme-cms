@@ -25,12 +25,18 @@ const criarDiretor = async () =>{
         alert('Preencha todos os campos marcados com asterisco')
     }else{
         
+        let dataFalecimentoDiretor
+        if(dataFalecimento.value != "" || dataFalecimento.value != " "){
+            dataFalecimentoDiretor = dataFalecimento.value.replace(" ", "").split('/').reverse().join('-')
+        }else{
+            dataFalecimentoDiretor = null
+        }
         const dataDiretor = dataNascimento.value.split('/').reverse().join('-')
         let novoDiretor = {
                 "nome": nome.value,
                 "nome_artistico": nomeArtistico.value,
                 "data_nascimento": dataDiretor,
-                "data_falecimento": dataFalecimento.value,
+                "data_falecimento": dataFalecimentoDiretor,
                 "nacionalidade": [nacionalidade],  
                 "biografia": biografia.value,
                 "foto": foto.value

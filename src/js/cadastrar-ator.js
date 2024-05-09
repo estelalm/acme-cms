@@ -13,27 +13,37 @@ const criarAtor = async () =>{
     let dataNascimento = document.getElementById('nascimento')
     let dataFalecimento = document.getElementById('falecimento')
     let genero = document.getElementById('genero')
-    let nacionalidade = getPaisEscolhido
+    let nacionalidade = await getPaisEscolhido()
     let biografia = document.getElementById('biografia')
     let foto = document.getElementById('foto')
 
-    console.log(nome, nomeArtistico)
+   
     if(nome.value === "" || nome.value === undefined || nomeArtistico.value === "" || nomeArtistico.value === undefined ||
-    dataNascimento.value === "" || dataNascimento.value === undefined || genero.value === "" || genero.value === undefined ||
-    nacionalidade.length <= 0 || nacionalidade === undefined || biografia.value === "" || biografia.value === undefined ||
-    foto.value === "" || foto.value === undefined){
+    dataNascimento.value === "" || dataNascimento.value === undefined ||
+    nacionalidade.length <= 0 || nacionalidade === undefined || biografia.value === "" || biografia.value === undefined ){
+
+
         alert('Preencha todos os campos marcados com asterisco')
     }else{
         
-        const dataAtor = dataNascimento.value.split('/').reverse().join('-')
+        let dataFalecimentoAtor
+        if(dataFalecimento.value != "" || dataFalecimento.value != " "){
+            dataFalecimentoAtor = dataFalecimento.value.replace(" ", "").split('/').reverse().join('-')
+        }else{
+            console.log(dataFalecimentoAtor)
+            dataFalecimentoAtor = null
+        }
+        
+        const dataAtor = dataNascimento.value.replace(" ", "").split('/').reverse().join('-')
         let novoAtor = {
                 "nome": nome.value,
                 "nome_artistico": nomeArtistico.value,
                 "data_nascimento": dataAtor,
-                "data_falecimento": dataFalecimento.value,
+                "data_falecimento": null,
                 "nacionalidade": nacionalidade,  
                 "biografia": biografia.value,
-                "foto": foto.value
+                "foto": foto.value,
+                "nacionalidade": [nacionalidade]
         }
     
        await postAtor(novoAtor)
@@ -64,6 +74,7 @@ const getPaisEscolhido = () =>{
                 paisId = Number(pais.value)
             }
     })
+
     
     return paisId
 }
