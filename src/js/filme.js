@@ -7,9 +7,24 @@ const botaoEditar = document.getElementById('editar')
 const body = document.getElementsByTagName("body")
 const inputs = document.querySelectorAll('input')
 const textAreas = document.querySelectorAll('textarea')
-let nacionalidade = document.getElementById('nacionalidade')  
+const titulo = document.getElementById('titulo')
+const trailer = document.getElementById('trailer')
+const capa_filme = document.getElementById('capa')
+const preco = document.getElementById('preco')
+const duracao = document.getElementById('duracao')
+const sinopse = document.getElementById('sinopse')
+let nacionalidade = document.getElementById('nacionalidade')
+const generos = document.getElementById('generos')
+const elenco = document.getElementById('elenco')  
+const diretor = document.getElementById('diretor')
+const produtora = document.getElementById('produtora')
+const lancamento = document.getElementById('lancamento')
+const relancamento = document.getElementById('relancamento')
 const paisSelect = document.getElementById('pais-select')
 const nacionalidadeText = document.getElementById('nacionalidade-text')
+const classificacaoContainer = document.getElementById('classificacao')
+let classificacaoInput = document.querySelectorAll("input[type=radio]")
+let classificacaoImg = document.getElementById('img-classificacao')
 
 inputs.forEach(input =>{
     input.disabled = true
@@ -24,6 +39,8 @@ const modoEditar = () =>{
     body[0].classList.toggle('edit-mode')
     paisSelect.classList.toggle('hidden')
     nacionalidadeText.classList.toggle('hidden')
+    classificacaoContainer.classList.toggle('hidden')
+    classificacaoImg.classList.toggle('hidden')
 
     const botaoCancelar = document.getElementById('exit')
     // botaoCancelar.classList.toggle('hidden')
@@ -57,28 +74,38 @@ const modoEditar = () =>{
     if(!body[0].classList.contains('edit-mode')){
 
         let valorUnitario = Number(inputs[5].value.replace('R$', ''))
-        let dataFilme = inputs[2].value.split('/').reverse().join('-')
+        let dataFilme = lancamento.value.split('/').reverse().join('-')
         let dataRelancamento
-        if(inputs[3].value == "" || inputs[3].value == undefined || inputs[3].value == '--'){
+        if(relancamento.value == "" || relancamento.value == undefined || relancamento.value == '--'){
             dataRelancamento = null
         }else{
-            dataRelancamento = inputs[3].value.split('/').reverse().join('-')
+            dataRelancamento = relancamento.value.split('/').reverse().join('-')
         }
-        console.log(getPaisEscolhido())
+        
+        let classificacao
+    classificacaoInput.forEach(input => {
+        if (input.checked) {
+            classificacao = input.value
+        }
+    })
+
+    console.log(classificacao)
 
         const filmeAtualizado = {
-            "nome": inputs[0].value,
-            "sinopse": textAreas[0].value,
-            "duracao": inputs[4].value,
+            "nome": titulo.value,
+            "sinopse": sinopse.value,
+            "duracao": duracao.value,
             "data_lancamento": dataFilme,
             "data_relancamento": dataRelancamento,
             "valor_unitario": valorUnitario,
-            "foto_capa": inputs[9].value,
-            "classificacao": 1,
+            "foto_capa": capa_filme.value,
+            "trailer": trailer.value,
+            "classificacao": classificacao,
             "pais_origem": getPaisEscolhido()
         }
 
        updateFilme(filmeId, filmeAtualizado)
+    //    window.location.reload()
     }
 }
 
@@ -123,35 +150,35 @@ const preencherInfoFilme = (filme) =>{
     //generos do filme
     const generosFilme = []
     filme.generos.forEach(genero => generosFilme.push(genero.nome))
-    inputs [1].value = generosFilme.join(' / ')
+    generos.innerHTML = `<span>${generosFilme.join(' / ')}</span>`
 
     // data lançamento
     const dataSplit = filme.data_lancamento.split('T')
     const dataFilme = dataSplit[0].split('-').reverse().join('/')
-    inputs [2].value = dataFilme
+    lancamento.value = dataFilme
     //data relançamento
     if(filme.data_relancamento == null){
-        inputs [3].value = ""
+        relancamento.value = ""
     }else{
         const relancamentoSplit = filme.data_relancamento.split('T')
         const relancamentoFilme = relancamentoSplit[0].split('-').reverse().join('/')
-        inputs [3].value = relancamentoFilme
+        relancamento.value = relancamentoFilme
     }
 
     //duração
     const duracaoCompleta = filme.duracao.split('T')
     const duracaoTempo = duracaoCompleta[1].split('.')
     const duracaoFilme = duracaoTempo[0]
-    inputs[4].value = duracaoFilme
+    duracao.value = duracaoFilme
 
     //valor unitário
-    inputs[5].value = `R$${filme.valor_unitario.toFixed(2)}`
-    textAreas[0].value = filme.sinopse
+    preco.value = `R$${filme.valor_unitario.toFixed(2)}`
+    sinopse.value = filme.sinopse
 
 
 
     //classificação
-    let classificacaoImg = document.getElementById('img-classificacao')
+    
     classificacaoImg.src = `../img/${filme.classificacao[0].imagem}`
     classificacaoImg.alt = filme.classificacao[0].nome
 
@@ -162,21 +189,21 @@ const preencherInfoFilme = (filme) =>{
     //elenco
     const elencoFilme = []
     filme.elenco.forEach(ator => elencoFilme.push(ator.nome))
-    textAreas[1].value = elencoFilme.join(', ')
+    elenco.innerHTML = `<p>${elencoFilme.join(', ')}</p>` 
     //diretor
     const diretoresFilme = []
     filme.diretor.forEach(diretor => diretoresFilme.push(diretor.nome))
 
-    inputs[6].value = diretoresFilme.join(', ')
+    diretor.innerHTML = `<p>${diretoresFilme.join(', ')}</p>` 
     //produtora
     const produtorasFilme = []
     filme.produtora.forEach(produtora => produtorasFilme.push(produtora.nome))
-    inputs[7].value = produtorasFilme.join(', ')
+    produtora.innerHTML = `<p>${produtorasFilme.join(', ')}</p>` 
 
     const capa = document.getElementById('capa')
-    capa.classList.add(`bg-[url('${filme.foto_capa}')]`)
-    inputs[9].value = filme.foto_capa
-    inputs[10].value = filme.trailer
+    capa.style.backgroundImage = `url('${filme.foto_capa}')`
+    capa_filme.value = filme.foto_capa
+    trailer.value = filme.trailer
 
 
     preencherSelectPais(filme.pais_origem)

@@ -34,33 +34,35 @@
             </div>
             <div class="container-input grid w-[26vw] pt-4">
                 <label class="text-lg pb-2 ">Gênero(s)</label>
-                <input type="text" class="h-12 bg-violet-300 border border-violet-900 p-2 placeholder:text-violet-400">
+                <div type="text" class="h-12 bg-violet-300 border border-violet-900 p-2 placeholder:text-violet-400" id="generos">
+
+                </div>
             </div>
             <div class=" flex gap-5">
                 <div class="container-input grid w-[12vw] pt-4">
                     <label class="text-lg pb-2 ">Data de
                         Lançamento</label>
-                    <input type="text" class="h-12 bg-violet-300 border border-violet-900 p-2">
+                    <input type="text" class="h-12 bg-violet-300 border border-violet-900 p-2" id="lancamento">
                 </div>
                 <div class="container-input grid w-[13vw] pt-4">
                     <label class="text-lg pb-2">Data de Relançamento</label>
-                    <input type="text" class="h-12 bg-violet-300 border border-violet-900 p-2">
+                    <input type="text" class="h-12 bg-violet-300 border border-violet-900 p-2" id="relancamento">
                 </div>
             </div>
             <div class=" flex gap-5">
                 <div class="container-input grid w-[12vw] pt-4">
                     <label class="text-lg pb-2 ">Duração</label>
-                    <input type="text" class="h-12 bg-violet-300 border border-violet-900 p-2">
+                    <input type="text" class="h-12 bg-violet-300 border border-violet-900 p-2" id="duracao">
                 </div>
                 <div class="container-input grid w-[13vw] pt-4">
                     <label class="text-lg pb-2 ">Preço</label>
-                    <input type="text" class="h-12 bg-violet-300 border border-violet-900 p-2">
+                    <input type="text" class="h-12 bg-violet-300 border border-violet-900 p-2" id="preco">
                 </div>
             </div>
 
             <div class="container-input grid w-[26vw] pt-4">
                 <label class="text-lg pb-2 ">Sinopse</label>
-                <textarea class="h-40 bg-violet-300 border border-violet-900 p-2 resize-none" minlength="1" ></textarea>
+                <textarea class="h-40 bg-violet-300 border border-violet-900 p-2 resize-none" minlength="1" id="sinopse"></textarea>
             </div>
         </div>
         <div>
@@ -71,7 +73,7 @@
                 <div class="flex gap-6">
                     <div id="classificacao-container" class="flex gap-4 items-center h-12">
                         <img src="" alt="" class="h-full" id="img-classificacao">
-                        <div class="flex gap-6 hidden">
+                        <div class="flex gap-6 hidden" id="classificacao">
                             <div class="flex flex-col gap-4 items-center h-12">
                                 <img src="../img/livre.webp" alt="Livre" class="h-full">
                                 <input type="radio" name="classificacao" class="h-12 bg-violet-300 border border-black p-2"
@@ -117,15 +119,15 @@
 
             <div class="container-input grid w-[26vw] pt-4">
                 <label class="text-lg pb-2 ">Elenco principal</label>
-                <textarea class="h-24 bg-violet-300 border border-violet-900 p-2 resize-none" minlength="1"></textarea>
+                <div class="h-24 bg-violet-300 border border-violet-900 p-2 resize-none" id="elenco" minlength="1"></div>
             </div>
             <div class="container-input grid w-[26vw] pt-4">
                 <label class="text-lg pb-2 ">Diretor(es)</label>
-                <input type="text" class="h-16 bg-violet-300 border border-violet-900 p-2 placeholder="Separar os nomes por vírgula"">
+                <div type="text" class="h-16 bg-violet-300 border border-violet-900 p-2" id="diretor"></div>
             </div>
             <div class="container-input grid w-[26vw] pt-4 pb-16">
                 <label class="text-lg pb-2 ">Produtora(s)</label>
-                <input type="text" class="h-16 bg-violet-300 border border-violet-900 p-2 placeholder="Separar os nomes por vírgula"">
+                <div type="text" class="h-16 bg-violet-300 border border-violet-900 p-2" id="produtora"></div>
             </div>
 
             <div class="flex w-[26vw] justify-center items-center gap-3">
@@ -150,11 +152,11 @@
                 <div>
                     <div class="container-input grid w-[14vw] pt-4">
                         <label class="text-lg pb-2 ">Capa do filme - link</label>
-                        <input type="text" class="h-24 bg-violet-300 border border-violet-900 p-2">
+                        <input type="text" class="h-24 bg-violet-300 border border-violet-900 p-2" id="capa">
                     </div>
                     <div class="container-input grid w-[14vw] pt-4">
                         <label class="text-lg pb-2 ">Trailer - link</label>
-                        <input type="text" class="h-24 bg-violet-300 border border-violet-900 p-2 text-wrap">
+                        <input type="text" class="h-24 bg-violet-300 border border-violet-900 p-2 text-wrap" id="trailer" >
                     </div>
                 </div>
             </div>
